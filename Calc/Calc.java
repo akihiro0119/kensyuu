@@ -1,14 +1,16 @@
+package Calc;
+
 import java.util.Scanner;
 public class Calc {
 
 public static void main(String[] args){
   Scanner s = new Scanner(System.in);
 
-  System.out.println("3桁の数字を入力してください");
+  System.out.println("数字を入力してください");
 
     int a = s.nextInt();
   
-    System.out.println("2桁の数字を入力してください");
+    System.out.println("もう１つ数字を入力してください");
 
     int b = s.nextInt();
 

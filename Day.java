@@ -13,7 +13,7 @@ public class Day {
     int day = c.get(Calendar.DAY_OF_MONTH);
 
     SimpleDateFormat fc =
-      new SimpleDateFormat("西暦yyyy年mm月dd日");
+      new SimpleDateFormat("西暦y年M月d日");
       
 
     day += 100;
@@ -22,7 +22,7 @@ public class Day {
     Date future = c.getTime();
     
     SimpleDateFormat f =
-      new SimpleDateFormat("100日後の西暦yyyy年mm月dd日");
+      new SimpleDateFormat("100日後の西暦y年M月d日");
 
     System.out.println(fc.format(now));
     System.out.println(f.format(future));
