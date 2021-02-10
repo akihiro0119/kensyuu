@@ -1,7 +1,7 @@
 package Story;
 
 public class Matango {
-  int hp;
+  public int hp;
   final int LEVEL = 10;
   char suffix;
 
