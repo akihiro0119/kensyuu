@@ -1,0 +1,11 @@
+@ECHO OFF
+
+SET HH=%TIME:~0,2%
+
+IF %HH% LSS 12(
+  ECHO 午前
+)
+  ELSE(
+    ECHO　午後
+
+PAUSE
