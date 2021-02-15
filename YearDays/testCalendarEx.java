@@ -32,7 +32,7 @@ public class testCalendarEx {
     for (int i = 0 ; i < 10 ; i++){
     c.add(Calendar.DAY_OF_MONTH, 10000);
       dispCalendar(c);
-    //　10000日後を出力しようとするとカレンダー通りにならない
+    //10000日後を出力しようとするとカレンダー通りにならない
     }
   }
 
