@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -34,7 +35,7 @@ public class App {
             }
 
             // フォルダを指定
-            File dir = new File("/Users/mono/tmp");
+            File dir = new File("ここに入れる");
 
 
             // フォルダの中身をlistと定義
@@ -43,9 +44,9 @@ public class App {
             //　htmlファイルのみをフォルダの中から抽出 どのファイルが結果として取得出来てれば良いのかの確認のためにもターミナルに一度出力をしておきたい
 
             for(int i = 0; i<list.length; i++){
-                if(list[i].getName().contains(".csv")){ //あとで.htmlに変更する
+                if(list[i].getName().contains(".html")){ //あとで.htmlに変更する
                     System.out.println(list[i].getName());
-
+// 配列に組み込むコード
                 }else{
                     //何もしない
                 }
@@ -55,7 +56,8 @@ public class App {
             if(checkBeforewritefile(newfile)){
                 FileWriter fw =  new FileWriter(newfile);
 
-                fw.write("/Users/mono/tmp"); //フルパス
+                fw.write(""); //ファイル名
+                fw.write(""); //タイトルを書き足す
                 System.out.println("フルパスを書き込みました！");
 
                 fw.close(); 
@@ -63,12 +65,39 @@ public class App {
                 System.out.println("書き込めません");
             }
 
-            //　対象のディレクトリ内のファイルを開く
 
-            // if文でタイトルを正規表現で取得
 
-            // タイトルをCSVファイルに書き写す　
-    }
+            File folder = new File("/Users/mono/tmp");
+
+            // 小テスト　フォルダ内の一つのファイルを指定
+        try{
+
+            File file = new File("/Users/mono/tmp/html.html"); //ファイルを指定
+
+             // ファイルが存在しない場合に例外が発生するので確認する
+                if (!file.exists()) {
+                    System.out.print("ファイルが存在しません");
+                    return;
+                }
+
+            //　小テスト　ファイルを１行ずつ読む
+            FileReader filereader = new FileReader(file);
+
+            BufferedReader br = new BufferedReader(filereader);
+
+            String line;
+            while((line = br.readLine()) != null) System.out.println(line);
+            br.close();
+            } catch (FileNotFoundException e){
+                e.printStackTrace();
+                System.exit(-1); // 0 以外は異常終了
+            } catch (IOException e){
+                e.printStackTrace();
+                System.exit(-1);
+            }
+        }
+
+
 
 	private static boolean checkBeforewritefile(File fileName) {
         if(fileName.exists()){
@@ -78,9 +107,5 @@ public class App {
         }
         return false;
     }
-
-    private static boolean cheakBeforeReadfile(File file) {
-        
-		return false;
-	}
+    
 }
