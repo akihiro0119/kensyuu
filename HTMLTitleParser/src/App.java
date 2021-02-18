@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -22,10 +23,10 @@ public class App {
 
             // ファイル名を定義
             String FileName = myFormat.format(c.getTime());
-            File newfile = new File("/Users/mono/tmp/index" + FileName + ".csv");
+            File newFile = new File("/Users/mono/tmp/index" + FileName + ".csv");
 
             try{
-                if(newfile.createNewFile()){
+                if(newFile.createNewFile()){
                     System.out.println("ファイルの作成に成功");
                 }else{
                     System.out.println("ファイルの作成に失敗");
@@ -35,67 +36,41 @@ public class App {
             }
 
             // フォルダを指定
-            File dir = new File("ここに入れる");
+            
 
+            if (args.length != 0){ //引数必ず１つであること
 
-            // フォルダの中身をlistと定義
-            File[] list = dir.listFiles();
+                File dir = new File(args[0]);
+      
+                File[] fileList = dir.listFiles();
+      
+                  if(fileList != null){
+                      for(int i = 0; i < fileList.length; i++){
+                        if(fileList[i].getName().contains(".html")){
+                            
+                            if(checkBeforewritefile(newFile)){
+                                FileWriter fileWriter =  new FileWriter(newFile);
 
-            //　htmlファイルのみをフォルダの中から抽出 どのファイルが結果として取得出来てれば良いのかの確認のためにもターミナルに一度出力をしておきたい
-
-            for(int i = 0; i<list.length; i++){
-                if(list[i].getName().contains(".html")){ //あとで.htmlに変更する
-                    System.out.println(list[i].getName());
-// 配列に組み込むコード
-                }else{
-                    //何もしない
-                }
+                                fileWriter.write(fileList[i].getName());
+                                System.out.println(fileList[i].getName() + "を書き込みました");
+                            }else{
+                                System.out.println("書き込めませんでした");
+                            }
+                
+                        }
+                      }
+                  }
+              
             }
+
+            
             // フォルダのフルパスをCSVファイルに書き写す 先頭に書けるのであれば後から入力しても良い
 
-            if(checkBeforewritefile(newfile)){
-                FileWriter fw =  new FileWriter(newfile);
-
-                fw.write(""); //ファイル名
-                fw.write(""); //タイトルを書き足す
-                System.out.println("フルパスを書き込みました！");
-
-                fw.close(); 
-            }else{
-                System.out.println("書き込めません");
-            }
 
 
+    }      // 小テスト　フォルダ内の一つのファイルを指定
 
-            File folder = new File("/Users/mono/tmp");
 
-            // 小テスト　フォルダ内の一つのファイルを指定
-        try{
-
-            File file = new File("/Users/mono/tmp/html.html"); //ファイルを指定
-
-             // ファイルが存在しない場合に例外が発生するので確認する
-                if (!file.exists()) {
-                    System.out.print("ファイルが存在しません");
-                    return;
-                }
-
-            //　小テスト　ファイルを１行ずつ読む
-            FileReader filereader = new FileReader(file);
-
-            BufferedReader br = new BufferedReader(filereader);
-
-            String line;
-            while((line = br.readLine()) != null) System.out.println(line);
-            br.close();
-            } catch (FileNotFoundException e){
-                e.printStackTrace();
-                System.exit(-1); // 0 以外は異常終了
-            } catch (IOException e){
-                e.printStackTrace();
-                System.exit(-1);
-            }
-        }
 
 
 

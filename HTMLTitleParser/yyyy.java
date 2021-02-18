@@ -1,14 +1,23 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class yyyy {
-  
-  //　フォルダを指定　コマンドラインから引数　配列として扱う
+      public static void main(String[] args) throws Exception {
+      
+        if (args.length != 0){ //引数必ず１つであること
 
-  // フォルダ内の.htmlを取得
+          File dir = new File(args[0]);
 
-  // 取得したhtmlファイルを選択
+          File[] fileList = dir.listFiles();
 
-  // 選択したファイルを１行ずつ読む
-
-  // 読んだファイルの中で<title></title>の要素を取得
-
-  // ファイル名、タイトル
+            if(fileList != null){
+                for(int i = 0; i < fileList.length; i++){
+                  if(fileList[i].getName().contains(".html")){
+                    System.out.println(fileList[i].getName());
+                  }
+                }
+            }
+        }
+      }
 }
+
