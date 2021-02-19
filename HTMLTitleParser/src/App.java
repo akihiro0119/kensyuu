@@ -1,14 +1,9 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.BufferedWriter;
-import java.io.PrintWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -22,12 +17,16 @@ public class App {
             DateFormat myFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss"); 
 
             // ファイル名を定義
-            String FileName = myFormat.format(c.getTime());
-            File newFile = new File("/Users/mono/tmp/index" + FileName + ".csv");
+
+            String FileName = "index" + myFormat.format(c.getTime());
+
+            // 
+            File newFile = new File("/Users/mono/tmp/" + FileName + ".csv");
+            
 
             try{
                 if(newFile.createNewFile()){
-                    System.out.println("ファイルの作成に成功");
+                    System.out.println(FileName + "のファイルの作成に成功");
                 }else{
                     System.out.println("ファイルの作成に失敗");
                 }
@@ -40,43 +39,43 @@ public class App {
 
             if (args.length != 0){ //引数必ず１つであること
 
-                File dir = new File(args[0]);
+                File dir = new File(args[0]); //設定からフォルダを引数として受け取る
       
-                File[] fileList = dir.listFiles();
+                File[] fileList = dir.listFiles(); //フォルダの中身を配列として格納
       
-                  if(fileList != null){
-                      for(int i = 0; i < fileList.length; i++){
-                        if(fileList[i].getName().contains(".html")){
-                            
-                            if(checkBeforewritefile(newFile)){
-                                FileWriter fileWriter =  new FileWriter(newFile);
+                  if(fileList != null){ //もしフォルダの中身が終わってないなら
 
-                                fileWriter.write(fileList[i].getName());
-                                System.out.println(fileList[i].getName() + "を書き込みました");
+                      for(int i = 0; i < fileList.length; i++){ //繰り返し処理をします
+
+                        if(fileList[i].getName().contains(".html")){ //もし html　を含むファイル名があるならば
+                            
+                            if(checkBeforewritefile(newFile)){ // もしcsvファイルに書き込みをするならば
+
+                                BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
+                                 // csvファイルにファイル書き込みをする宣言
+
+                                System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
+
+                                bw.write(fileList[i].getName()); //フォルダから取得したhtmlを含むファイル名をcsvファイルに書き込み
+                               
+                                bw.close(); // 1つ書き込んだら一度閉じる
                             }else{
                                 System.out.println("書き込めませんでした");
                             }
-                
                         }
                       }
                   }
               
             }
 
-            
-            // フォルダのフルパスをCSVファイルに書き写す 先頭に書けるのであれば後から入力しても良い
-
-
-
-    }      // 小テスト　フォルダ内の一つのファイルを指定
+    }   
 
 
 
 
-
-	private static boolean checkBeforewritefile(File fileName) {
-        if(fileName.exists()){
-            if(fileName.isFile() && fileName.canWrite()){
+	private static boolean checkBeforewritefile(File newFile) {
+        if(newFile.exists()){
+            if(newFile.isFile() && newFile.canWrite()){
                 return true;
             }
         }
