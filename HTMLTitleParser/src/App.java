@@ -48,7 +48,7 @@ public class App {
       
                 File[] fileList = dir.listFiles(); //フォルダの中身を配列として格納
       
-                  if(fileList != null){ //もしフォルダの中身が終わってないなら
+                    if(fileList != null){ //もしフォルダの中身が終わってないなら
 
                     for(int i = 0; i < fileList.length; i++){ //繰り返し処理をします
 
