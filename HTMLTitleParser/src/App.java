@@ -1,10 +1,15 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.io.Closeable; 
 
 
 public class App {
@@ -45,33 +50,55 @@ public class App {
       
                   if(fileList != null){ //もしフォルダの中身が終わってないなら
 
-                      for(int i = 0; i < fileList.length; i++){ //繰り返し処理をします
+                    for(int i = 0; i < fileList.length; i++){ //繰り返し処理をします
 
-                        if(fileList[i].getName().contains(".html")){ //もし html　を含むファイル名があるならば
+                        try{
+                            if
+                            (fileList[i].getName().contains(".html")){//もし html　を含むファイル名があるならば
                             
-                            if(checkBeforewritefile(newFile)){ // もしcsvファイルに書き込みをするならば
+                            if (checkBeforewritefile(newFile)){ // もしcsvファイルに書き込みをするならば
 
                                 BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
                                  // csvファイルにファイル書き込みをする宣言
 
+                                // BufferedReader br = new BufferedReader(new FileReader(fileList[i]));
+                                 // ファイルを読み込む準備
+
+                                //　String line;
+                                // String型を定義
+
+                                    // while((line = br.readLine()) != null);
+                                    // 行がなくなるまで1行ずつ処理していく
+
+                                    // String regex =" <(title)>.*?<\\>";
+                                    // これを取得したいと定義
+
+                                    // Pattern p = Pattern.compile(regex);
+                                    // 定義した物をパターンと定義
+
+                                    // check(p,line);
+                                    // 1行ずつパターンがないかチェック
+
                                 System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
 
                                 bw.write(fileList[i].getName()); //フォルダから取得したhtmlを含むファイル名をcsvファイルに書き込み
+
+                                bw.close();
+                            }
                                
-                                bw.close(); // 1つ書き込んだら一度閉じる
                             }else{
                                 System.out.println("書き込めませんでした");
                             }
+                        }catch(IOException e){
+                         System.out.println(e);
+                        }finally{
+
                         }
-                      }
-                  }
-              
+                    }
+                    }
             }
 
     }   
-
-
-
 
 	private static boolean checkBeforewritefile(File newFile) {
         if(newFile.exists()){
@@ -80,6 +107,16 @@ public class App {
             }
         }
         return false;
+    }
+
+    private static void check(Pattern p, String line) {
+        Matcher m = p.matcher(line);
+
+        if (m.find()){
+            //　バッファ　取得したタイトル　で書き込み
+        }else{
+            // バッファ　タイトルなし　で書き込み
+        }
     }
     
 }
