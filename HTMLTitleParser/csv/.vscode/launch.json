@@ -6,6 +6,21 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch App2",
+      "request": "launch",
+      "mainClass": "App2",
+      "projectName": "csv_977493cf",
+      "args": "/Users/mono/tmp/"
+    },
+    {
+      "type": "java",
+      "name": "Launch App1",
+      "request": "launch",
+      "mainClass": "App1",
+      "projectName": "csv_977493cf"
+    },
+    {
+      "type": "java",
       "name": "Launch App",
       "request": "launch",
       "mainClass": "App",

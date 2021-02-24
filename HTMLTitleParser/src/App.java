@@ -22,10 +22,9 @@ public class App {
             DateFormat myFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss"); 
 
             // ファイル名を定義
-
             String FileName = "index" + myFormat.format(c.getTime());
 
-            // 
+            // 場所を定義し、csvに拡張子を変更
             File newFile = new File("/Users/mono/tmp/" + FileName + ".csv");
             
 
@@ -52,6 +51,8 @@ public class App {
 
                     for(int i = 0; i < fileList.length; i++){ //繰り返し処理をします
 
+                        
+
                         try{
                             if
                             (fileList[i].getName().contains(".html")){//もし html　を含むファイル名があるならば
@@ -61,62 +62,85 @@ public class App {
                                 BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
                                  // csvファイルにファイル書き込みをする宣言
 
-                                // BufferedReader br = new BufferedReader(new FileReader(fileList[i]));
+                                 BufferedReader br = new BufferedReader(new FileReader(fileList[i]));
                                  // ファイルを読み込む準備
 
-                                //　String line;
+                                String line;
                                 // String型を定義
 
-                                    // while((line = br.readLine()) != null);
-                                    // 行がなくなるまで1行ずつ処理していく
+                                String regex = "<(title|title)>.*?</>";
+                                // これを取得したいと定義
 
-                                    // String regex =" <(title)>.*?<\\>";
-                                    // これを取得したいと定義
-
-                                    // Pattern p = Pattern.compile(regex);
+                                Pattern p = Pattern.compile(regex);
                                     // 定義した物をパターンと定義
 
-                                    // check(p,line);
-                                    // 1行ずつパターンがないかチェック
+                                while((line = br.readLine()) != null){
+                                    // 行がなくなるまで1行ずつ処理していく
+
+                                     if (check(p,line)){
+
+                                     bw.write(line);
+
+                                     }else{
+                                         bw.write("タイトル無し");
+                                    }
+
+                                }
+
+                                bw.write(fileList[i].getName()); 
+                                //フォルダから取得したhtmlを含むファイル名をcsvファイルに書き込み
 
                                 System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
 
-                                bw.write(fileList[i].getName()); //フォルダから取得したhtmlを含むファイル名をcsvファイルに書き込み
-
                                 bw.close();
+    
                             }
                                
                             }else{
+
                                 System.out.println("書き込めませんでした");
+
                             }
+
                         }catch(IOException e){
+
                          System.out.println(e);
+
                         }finally{
 
                         }
                     }
-                    }
+                }
             }
 
-    }   
+        }
 
 	private static boolean checkBeforewritefile(File newFile) {
+
         if(newFile.exists()){
+
             if(newFile.isFile() && newFile.canWrite()){
+
                 return true;
             }
         }
         return false;
     }
 
-    private static void check(Pattern p, String line) {
+
+    private static boolean check(Pattern p, String line) {
+
         Matcher m = p.matcher(line);
 
         if (m.find()){
-            //　バッファ　取得したタイトル　で書き込み
+
+            return true;
+
         }else{
-            // バッファ　タイトルなし　で書き込み
+
+            return false;
         }
     }
+
     
 }

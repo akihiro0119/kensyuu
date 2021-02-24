@@ -13,8 +13,9 @@ public class xxxx {
             String line;
             while((line = in.readLine()) != null);
 
-            String regex =" <(title)>.*?<\\>";
+            String regex ="<head>.*<title>(.*)</title>.*</head>";
             // String型、正規表現でタイトルの前後を取りたいよ
+            
             Pattern p = Pattern.compile(regex);
             // 改行を含まないテキストを読み込むよ
             // プリントアウトする
