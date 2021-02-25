@@ -4,7 +4,14 @@
   // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-    
+    {
+      "type": "java",
+      "name": "Launch App",
+      "request": "launch",
+      "mainClass": "csv.src.App",
+      "projectName": "HTMLTitleParser_f655a058",
+      "args": "/Users/mono/tmp/"
+    },
     {
       "type": "java",
       "name": "Launch App",

@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import java.io.Closeable; 
 
 
 public class App {
@@ -38,7 +37,12 @@ public class App {
                 System.out.println(e);
             }
 
-            // フォルダを指定
+            BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
+                                 // csvファイルにファイル書き込みをする宣言
+                                 // ここでbwが始まっている
+
+            String enter = System.getProperty("line.separator");
+            // 環境に依存しない改行コードの定義
             
 
             if (args.length != 0){ //引数必ず１つであること
@@ -49,18 +53,23 @@ public class App {
       
                     if(fileList != null){ //もしフォルダの中身が終わってないなら
 
-                    for(int i = 0; i < fileList.length; i++){ //繰り返し処理をします
-
-                        
+                    for(int i = 0; i < fileList.length; i++){ // 繰り返し
 
                         try{
                             if
-                            (fileList[i].getName().contains(".html")){//もし html　を含むファイル名があるならば
+                            (fileList[i].getName().contains(".html")){//もし htmlを含むファイル名があるならば
                             
-                            if (checkBeforewritefile(newFile)){ // もしcsvファイルに書き込みをするならば
+                            if(checkBeforewritefile(newFile)){ // もしcsvファイルに書き込みをするならば
 
-                                BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
-                                 // csvファイルにファイル書き込みをする宣言
+                                
+
+                                 bw.write(fileList[i].getName());
+
+                                 bw.write("   ");
+                                //フォルダから取得したhtmlを含むファイル名をcsvファイルに書き込み
+
+                                System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
+
 
                                  BufferedReader br = new BufferedReader(new FileReader(fileList[i]));
                                  // ファイルを読み込む準備
@@ -68,37 +77,47 @@ public class App {
                                 String line;
                                 // String型を定義
 
-                                String regex = "<(title|title)>.*?</>";
+                                String regex = "title";
                                 // これを取得したいと定義
 
                                 Pattern p = Pattern.compile(regex);
                                     // 定義した物をパターンと定義
 
+                                boolean flg = true;
+                                // trueをflgに代入
+
                                 while((line = br.readLine()) != null){
                                     // 行がなくなるまで1行ずつ処理していく
 
                                      if (check(p,line)){
+                                        // もしlineにパターンがヒットするなら
 
-                                     bw.write(line);
+                                     bw.write(line + enter);
+                                     //そのlineを書き込みと改行
 
-                                     }else{
-                                         bw.write("タイトル無し");
-                                    }
+                                     flg = false;
+                                     // falseをflgに代入
+
+                                     break;
+
+                                     }
 
                                 }
 
-                                bw.write(fileList[i].getName()); 
-                                //フォルダから取得したhtmlを含むファイル名をcsvファイルに書き込み
-
-                                System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
-
-                                bw.close();
-    
+                                if(flg){
+                                    // もしflgを処理するなら falseなら breakしないなら
+                                bw.write("タイトル無し" + enter);
+                                // タイトル無しを記述し改行
+                                }
+                                
+                               
+                               
                             }
                                
                             }else{
-
                                 System.out.println("書き込めませんでした");
+
+                                
 
                             }
 
@@ -107,11 +126,13 @@ public class App {
                          System.out.println(e);
 
                         }finally{
+                            
 
                         }
                     }
                 }
-            }
+                
+            }bw.close();
 
         }
 
@@ -144,3 +165,4 @@ public class App {
 
     
 }
+
