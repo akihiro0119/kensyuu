@@ -13,180 +13,132 @@ import java.util.regex.Matcher;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
-            
-            Calendar c = Calendar.getInstance();
-            //カレンダークラスにより現在日時を取得
-
-            DateFormat myFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-            // 日時のフォーマットを設定 
-
-            String FileName = "index" + myFormat.format(c.getTime());
-            // 作成するファイル名を定義
-
-            File newFile = new File("/Users/mono/tmp/" + FileName + ".csv");
-            // 作成するファイルの保存場所を定義し、csvに拡張子を変更
-            
-
+        //カレンダークラスにより現在日時を取得
+        Calendar c = Calendar.getInstance();
+        // 日時のフォーマットを設定 
+        DateFormat myFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+        // 作成するファイル名を定義
+        String FileName = "index" + myFormat.format(c.getTime());
+        // 作成するファイルの保存場所を定義し、csvに拡張子を変更
+        File newFile = new File("/Users/mono/tmp/" + FileName + ".csv");   
+            //ファイル作成が上手くいくかどうか
             try{
-                //ファイル作成が上手くいくかどうか
+                //上手くいったなら作成したファイル名と状態をコマンドラインに表示
                 if(newFile.createNewFile()){
-
                     System.out.println(FileName + "のファイルの作成に成功");
-                    //上手くいったなら作成したファイル名と状態をコマンドラインに表示
+                //上手くいかなかったらコマンドラインに失敗と表示
                 }else{
-
                     System.out.println("ファイルの作成に失敗");
-                    //上手くいかなかったらコマンドラインに失敗と表示
                 }
-
             }catch(IOException e){
-
                 System.out.println(e);
-
             }
 
-
-
+            // csvファイルにファイル書き込みをする宣言
+            // ここでbwが始まっている
             BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
-                                 // csvファイルにファイル書き込みをする宣言
-                                 // ここでbwが始まっている
-
-            String enter = System.getProperty("line.separator");
             // 環境に依存しない改行コードの定義
-            
+            String enter = System.getProperty("line.separator");
 
-            if (args.length != 0){ //引数必ず１つであること
+            //引数必ず１つであること
+            if (args.length != 0){ 
+                //設定からフォルダを引数として受け取る
+                File dir = new File(args[0]);
+                //フォルダの中身を配列として格納
+                File[] fileList = dir.listFiles(); 
 
-                File dir = new File(args[0]); //設定からフォルダを引数として受け取る
-      
-                File[] fileList = dir.listFiles(); //フォルダの中身を配列として格納
-      
-                    if(fileList != null){ //もしフォルダの中身が終わってないなら
+                    //もしフォルダの中身が終わってないなら
+                    if(fileList != null){
 
-                    for(int i = 0; i < fileList.length; i++){ // 繰り返し
+                    // 繰り返し
+                    for(int i = 0; i < fileList.length; i++){ 
 
+                        //もし htmlを含むファイル名があるならば
                         try{
                             if
                             (fileList[i].getName().contains(".html")){
-                                //もし htmlを含むファイル名があるならば
-                            
+                                
+                            // もしcsvファイルに書き込みをするならば
                             if(checkBeforewritefile(newFile)){ 
-                                // もしcsvファイルに書き込みをするならば
-
+                                // 処置中のhtmlファイル名を書き込み
                                  bw.write(fileList[i].getName());
-                                 // 処置中のhtmlファイル名を書き込み
-
+                                 //半角3つ分の空白を書き込み
                                  bw.write("   ");
-                                //半角3つ分の空白を書き込み
-
-                                System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
                                 // 書き込みが出来たことをコマンドラインで表示
-
-
+                                System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
+                                // ファイルを読み込む準備
                                  BufferedReader br = new BufferedReader(new FileReader(fileList[i]));
-                                 // ファイルを読み込む準備
-
+                                 // String型を定義                                 
                                 String line;
-                                // String型を定義
-
-                                String regex = "<title>(.*)</title>";
                                 // これを取得したいと定義
-
+                                String regex = "<title>(.*)</title>";
+                                // 定義した物をパターンと定義
                                 Pattern p = Pattern.compile(regex);
-                                    // 定義した物をパターンと定義
-
+                                // trueをflgに代入                                    
                                 boolean flg = true;
-                                // trueをflgに代入
 
+                                // 行がなくなるまで1行ずつ処理していく
                                 while((line = br.readLine()) != null){
-                                    // 行がなくなるまで1行ずつ処理していく
-
-                                     if (check(p,line)){
-                                        // もしlineにパターンがヒットするなら
-
+                                
+                                    // もしlineにパターンがヒットするなら
+                                    if (check(p,line)){
+                                        // titleとその閉じタグを消す
                                         line = line.replace("<title>" , "");
                                         line = line.replace("</title>", "");
-                                        // titleとその閉じタグを消す
-
-                                     bw.write(line + enter);
-                                     //lineを書き込みと改行
-
-                                     flg = false;
-                                     // falseをflgに代入
-
-                                     break;
-                                     // nullになる前に処理を終了
-
-                                     }
-
+                                        //lineを書き込みと改行
+                                        bw.write(line + enter);
+                                        // falseをflgに代入
+                                        flg = false;
+                                    // nullになる前に処理を終了
+                                    break;
+                                    }
                                 }
 
+                                // もしflgを処理するなら falseなら breakしないなら
                                 if(flg){
-                                    // もしflgを処理するなら falseなら breakしないなら
-                                bw.write("タイトル無し" + enter);
                                 // タイトル無しを記述し改行
+                                bw.write("タイトル無し" + enter);
                                 }
-                                
                             }
-                               
+                            // htmlファイル以外の場合はファイル名と上記をコマンドラインに表示
                             }else{
                                 System.out.println(fileList[i].getName() + "はHTMLではありません");
-                                // htmlファイル以外の場合はファイル名と上記をコマンドラインに表示
-
                             }
-
                         }catch(IOException e){
-
                          System.out.println(e);
-
                         }finally{
-                            
                         }
                     }
                 }
-                
-            }bw.close();
-
+            }
+            bw.close();
         }
-
+    // 作成したcsvファイルが存在するかのチェック
 	private static boolean checkBeforewritefile(File newFile) {
-        // 作成したcsvファイルが存在するかのチェック
-
+        //もしファイルがあるならば
         if(newFile.exists()){   
-            // `もしファイルがあるならば
-
+            // そのファイルが書き込み可能ならば処理を続行
             if(newFile.isFile() && newFile.canWrite()){
-                // そのファイルが書き込み可能ならば処理を続行
-
                 return true;
             }
         }
-        return false;
         // ファイルが作成できてないならfalseを返して処理を止める
+        return false;
     }
 
-
+    // 正規表現のチェック
     private static boolean check(Pattern p, String line) {
-        // 正規表現のチェック
-
-        Matcher m = p.matcher(line);
         // マッチを定義 パターンがlineから見つかるか
-
+        Matcher m = p.matcher(line);
+        // もしマッチが見つかるなら
         if (m.find()){
-            // もしマッチが見つかるなら
-
-            return true;
             // trueを返す
-
+            return true;    
+        // マッチが見つからないなら
         }else{
-            // マッチが見つからないなら
-
-            return false;
             // falseを返す
+            return false;
         }
     }
-
-    
 }
 
