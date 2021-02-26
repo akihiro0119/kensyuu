@@ -14,28 +14,39 @@ import java.util.regex.Matcher;
 public class App {
     public static void main(String[] args) throws Exception {
 
-            //カレンダークラスにより現在日時を取得
+            
             Calendar c = Calendar.getInstance();
+            //カレンダークラスにより現在日時を取得
 
-            // 日時のフォーマットを設定
-            DateFormat myFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss"); 
+            DateFormat myFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+            // 日時のフォーマットを設定 
 
-            // ファイル名を定義
             String FileName = "index" + myFormat.format(c.getTime());
+            // 作成するファイル名を定義
 
-            // 場所を定義し、csvに拡張子を変更
             File newFile = new File("/Users/mono/tmp/" + FileName + ".csv");
+            // 作成するファイルの保存場所を定義し、csvに拡張子を変更
             
 
             try{
+                //ファイル作成が上手くいくかどうか
                 if(newFile.createNewFile()){
+
                     System.out.println(FileName + "のファイルの作成に成功");
+                    //上手くいったなら作成したファイル名と状態をコマンドラインに表示
                 }else{
+
                     System.out.println("ファイルの作成に失敗");
+                    //上手くいかなかったらコマンドラインに失敗と表示
                 }
+
             }catch(IOException e){
+
                 System.out.println(e);
+
             }
+
+
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
                                  // csvファイルにファイル書き込みをする宣言
@@ -57,18 +68,20 @@ public class App {
 
                         try{
                             if
-                            (fileList[i].getName().contains(".html")){//もし htmlを含むファイル名があるならば
+                            (fileList[i].getName().contains(".html")){
+                                //もし htmlを含むファイル名があるならば
                             
-                            if(checkBeforewritefile(newFile)){ // もしcsvファイルに書き込みをするならば
-
-                                
+                            if(checkBeforewritefile(newFile)){ 
+                                // もしcsvファイルに書き込みをするならば
 
                                  bw.write(fileList[i].getName());
+                                 // 処置中のhtmlファイル名を書き込み
 
                                  bw.write("   ");
-                                //フォルダから取得したhtmlを含むファイル名をcsvファイルに書き込み
+                                //半角3つ分の空白を書き込み
 
                                 System.out.println(fileList[i].getName() + "のファイル名を書き込みました");
+                                // 書き込みが出来たことをコマンドラインで表示
 
 
                                  BufferedReader br = new BufferedReader(new FileReader(fileList[i]));
@@ -77,7 +90,7 @@ public class App {
                                 String line;
                                 // String型を定義
 
-                                String regex = "title";
+                                String regex = "<title>(.*)</title>";
                                 // これを取得したいと定義
 
                                 Pattern p = Pattern.compile(regex);
@@ -92,13 +105,18 @@ public class App {
                                      if (check(p,line)){
                                         // もしlineにパターンがヒットするなら
 
+                                        line = line.replace("<title>" , "");
+                                        line = line.replace("</title>", "");
+                                        // titleとその閉じタグを消す
+
                                      bw.write(line + enter);
-                                     //そのlineを書き込みと改行
+                                     //lineを書き込みと改行
 
                                      flg = false;
                                      // falseをflgに代入
 
                                      break;
+                                     // nullになる前に処理を終了
 
                                      }
 
@@ -110,14 +128,11 @@ public class App {
                                 // タイトル無しを記述し改行
                                 }
                                 
-                               
-                               
                             }
                                
                             }else{
-                                System.out.println("書き込めませんでした");
-
-                                
+                                System.out.println(fileList[i].getName() + "はHTMLではありません");
+                                // htmlファイル以外の場合はファイル名と上記をコマンドラインに表示
 
                             }
 
@@ -127,7 +142,6 @@ public class App {
 
                         }finally{
                             
-
                         }
                     }
                 }
@@ -137,29 +151,39 @@ public class App {
         }
 
 	private static boolean checkBeforewritefile(File newFile) {
+        // 作成したcsvファイルが存在するかのチェック
 
-        if(newFile.exists()){
+        if(newFile.exists()){   
+            // `もしファイルがあるならば
 
             if(newFile.isFile() && newFile.canWrite()){
+                // そのファイルが書き込み可能ならば処理を続行
 
                 return true;
             }
         }
         return false;
+        // ファイルが作成できてないならfalseを返して処理を止める
     }
 
 
     private static boolean check(Pattern p, String line) {
+        // 正規表現のチェック
 
         Matcher m = p.matcher(line);
+        // マッチを定義 パターンがlineから見つかるか
 
         if (m.find()){
+            // もしマッチが見つかるなら
 
             return true;
+            // trueを返す
 
         }else{
+            // マッチが見つからないなら
 
             return false;
+            // falseを返す
         }
     }
 
