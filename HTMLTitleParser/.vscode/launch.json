@@ -6,6 +6,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch practice10",
+      "request": "launch",
+      "mainClass": "practice10",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice9",
+      "request": "launch",
+      "mainClass": "practice9",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice8",
+      "request": "launch",
+      "mainClass": "practice8",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice1",
+      "request": "launch",
+      "mainClass": "practice1",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
       "name": "Launch App",
       "request": "launch",
       "mainClass": "csv.src.App",
