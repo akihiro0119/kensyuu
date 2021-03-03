@@ -6,6 +6,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "Zahyo.Main",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice15",
+      "request": "launch",
+      "mainClass": "practice15",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice13",
+      "request": "launch",
+      "mainClass": "Zahyo.practice13",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice13",
+      "request": "launch",
+      "mainClass": "practice13",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice12",
+      "request": "launch",
+      "mainClass": "practice12",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice11",
+      "request": "launch",
+      "mainClass": "practice11",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
       "name": "Launch practice10",
       "request": "launch",
       "mainClass": "practice10",

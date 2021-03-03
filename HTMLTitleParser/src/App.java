@@ -153,34 +153,7 @@ public class App {
     }
 
     // タイトルを抽出し書き込みメソッド
-    public static boolean readTitle(String line, String regex, Pattern p, String enter){
-
-        boolean flg = true;
-        BufferedReader br = null;
-        BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
-
-        while((line = br.readLine()) != null){
-
-            // もしlineにパターンがヒットするなら
-            if (check(p,line)){
-                // titleとその閉じタグを消す
-                line = line.replace("<title>" , "");
-                line = line.replace("</title>", "");
-                //lineを書き込みと改行
-                bw.write(line + enter);
-                // falseをflgに代入
-                flg = false;
-                // nullになる前に処理を終了
-                break;
-            }
-        }
-        // もしflgを処理するなら falseなら breakしないなら
-        if(flg){
-            // タイトル無しを記述し改行
-            bw.write("タイトル無し" + enter);
-
-        }
-    }
+    
     
 
 }
