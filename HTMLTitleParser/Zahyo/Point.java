@@ -4,8 +4,8 @@ public class Point {
   int x;
   int y;
 
-  public static void goukaku(String k1, String k2){
-    System.out.println(k1);
-    System.out.println(k2);
+  public static void goukaku(practice15.kdata K){
+    System.out.println(K.k1);
+    System.out.println(K.k2);
   }
 }
