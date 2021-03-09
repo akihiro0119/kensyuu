@@ -17,15 +17,17 @@ public class practice15 {
       //return K;
     //}
 
-  public class kdata{
-    String k1;
-    String k2;
+  public kdata data; //kdataクラスをdataに再定義
+
+  public void setKclass(){ // Kclassを再定義 voidのため現状は空っぽ
+    data = new kdata(); // dataに20行目のkdataを代入
+    data.k1 = this.k1; // data.k1に4行目のk1を代入
+    data.k2 = this.k2; // data.k2に5行目のk2を代入
   }
-  public kdata data;
-  public void setKclass(){
-  data = new kdata();
-  data.k1 = this.k1;
-  data.k2 = this.k2;
+
+  public class kdata{ //構造体の生成 publicだから全てのクラスから
+    String k1; // String形のk1を作成。4行目のk1を引き取る場所？
+    String k2; // String形のk2を作成。5行目のk2を引き取る場所？
   }
 }
 

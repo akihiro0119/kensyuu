@@ -1,6 +1,8 @@
 public class practice6 {
   public static void main(String args[]){
-    // 呼び出し先
+  // メインの処理
+    //methodメソッドの処理
+    //methodメソッドに（）内の引数を文章として渡し、（）を表示させるのが目的
     method("引数A");
     method("引数B");
   }

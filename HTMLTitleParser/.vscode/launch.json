@@ -6,6 +6,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch practice7",
+      "request": "launch",
+      "mainClass": "practice7",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice6",
+      "request": "launch",
+      "mainClass": "practice6",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice2",
+      "request": "launch",
+      "mainClass": "practice2",
+      "projectName": "HTMLTitleParser_f655a058"
+    },
+    {
+      "type": "java",
       "name": "Launch Main",
       "request": "launch",
       "mainClass": "Zahyo.Main",

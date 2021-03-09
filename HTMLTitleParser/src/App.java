@@ -56,18 +56,49 @@ public class App {
             File[] fileList = dir.listFiles(); 
 
                 //もしフォルダの中身が終わってないなら
-                if(fileList != null){
+            if(fileList != null){
 
                     // 繰り返し
-                    for(int i = 0; i < fileList.length; i++){ 
+                for(int i = 0; i < fileList.length; i++){ 
 
-                        BufferedReader br = null;
+                    writeTo(fileList[i],bw,enter,p);       
+                }
+            }
+        }
+        bw.close();
+    }
+
+    // 作成したcsvファイルが存在するかのチェック
+	// private static boolean checkBeforewritefile(File newFile) {
+        //もしファイルがあるならば
+        // if(newFile.exists()){   
+             //そのファイルが書き込み可能ならば処理を続行
+            //if(newFile.isFile() && newFile.canWrite()){
+                // return true;
+           // }
+        //}
+        // ファイルが作成できてないならfalseを返して処理を止める
+        //return false;   //return newFile.exists() && newFile.isFile() && newFile.canWrite();
+    //}
+
+    // 正規表現のチェック
+    private static boolean check(Pattern p, String line) {
+        // マッチを定義 パターンがlineから見つかるか
+        Matcher m = p.matcher(line);
+        return m.find();
+    }
+
+    // タイトルを抽出し書き込みメソッド
+    // メソッドの宣言
+    private static void writeTo(File file, BufferedWriter bw, String enter, Pattern p){
+        BufferedReader br = null;
+        
 
                         //もし htmlを含むファイル名があるならば
                         try{
 
                             // 処理中のHTMLファイルの名前を格納
-                            String htmlName = fileList[i].getName();
+                            String htmlName = file.getName();
                             // もし、処理中のファイルの拡張子がhtmlだったら
                             if(htmlName.contains(".html")){
                                 
@@ -79,7 +110,7 @@ public class App {
                                 // 書き込みが出来たことをコマンドラインで表示
                                 System.out.println(htmlName + "のファイル名を書き込みました");
                                 // ファイルを読み込む準備
-                                br = new BufferedReader(new FileReader(fileList[i]));
+                                br = new BufferedReader(new FileReader(file));
                                 // String型を定義                                 
                                 String line;
 
@@ -126,35 +157,7 @@ public class App {
                             }
                         }
                     }
-                }
-            }
-        }
-        bw.close();
+
     }
-
-    // 作成したcsvファイルが存在するかのチェック
-	// private static boolean checkBeforewritefile(File newFile) {
-        //もしファイルがあるならば
-        // if(newFile.exists()){   
-             //そのファイルが書き込み可能ならば処理を続行
-            //if(newFile.isFile() && newFile.canWrite()){
-                // return true;
-           // }
-        //}
-        // ファイルが作成できてないならfalseを返して処理を止める
-        //return false;   //return newFile.exists() && newFile.isFile() && newFile.canWrite();
-    //}
-
-    // 正規表現のチェック
-    private static boolean check(Pattern p, String line) {
-        // マッチを定義 パターンがlineから見つかるか
-        Matcher m = p.matcher(line);
-        return m.find();
-    }
-
-    // タイトルを抽出し書き込みメソッド
-    
-    
-
 }
 

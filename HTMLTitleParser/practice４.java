@@ -4,7 +4,12 @@ public class practice４ {
   static int b = 20;
 
   public static void main(String[] args){
+  // メインの処理
+    // printOneValueメソッドを処理
+    // 最大値の表示が目的
     printOneValue();
+    // printThreeValuesメソッドを処理
+    // 最大値、最小値、平均値の表示が目的
     printThreeValues();
   }
 
