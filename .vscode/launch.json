@@ -1,0 +1,687 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Launch Calc",
+      "request": "launch",
+      "mainClass": "Calc.Calc",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest6",
+      "request": "launch",
+      "mainClass": "Collection.collectionTest6",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest7",
+      "request": "launch",
+      "mainClass": "Collection.collectionTest7",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest8",
+      "request": "launch",
+      "mainClass": "Collection.collectionTest8",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest9",
+      "request": "launch",
+      "mainClass": "Collection.collectionTest9",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Day",
+      "request": "launch",
+      "mainClass": "Day",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch DeleteFile",
+      "request": "launch",
+      "mainClass": "DeleteFile",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch GUI",
+      "request": "launch",
+      "mainClass": "GUI",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch mainApp",
+      "request": "launch",
+      "mainClass": "HTMLFaile.mainApp",
+      "projectName": "kensyuu_df21527b",
+      "args": "/Users/mono/tmp/"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.Zahyo.Main",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main(1)",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.app.Main",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch App",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.csv.src.App",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch App1",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.csv.src.App1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch App2",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.csv.src.App2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice1",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice10",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice10",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice11",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice11",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice12",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice12",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice2",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice3",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice5",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice5",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice6",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice6",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice7",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice7",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice8",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice8",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice9",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice9",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch practice４",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.practice４",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch App(1)",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.src.App",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch csv",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.src.csv",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch fileopen",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.src.fileopen",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch xxxx",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.src.xxxx",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch メイン",
+      "request": "launch",
+      "mainClass": "HTMLTitleParser.src.メイン",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch hashmapTest1",
+      "request": "launch",
+      "mainClass": "HashMap.hashmapTest1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch hashmapTest2",
+      "request": "launch",
+      "mainClass": "HashMap.hashmapTest2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main(2)",
+      "request": "launch",
+      "mainClass": "Hero.Main",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest1",
+      "request": "launch",
+      "mainClass": "List.collectionTest1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest2",
+      "request": "launch",
+      "mainClass": "List.collectionTest2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest3",
+      "request": "launch",
+      "mainClass": "List.collectionTest3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest4",
+      "request": "launch",
+      "mainClass": "List.collectionTest4",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch collectionTest5",
+      "request": "launch",
+      "mainClass": "List.collectionTest5",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest17",
+      "request": "launch",
+      "mainClass": "Mitubishi.ctest17",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest16",
+      "request": "launch",
+      "mainClass": "Power.ctest16",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch JSample1_1",
+      "request": "launch",
+      "mainClass": "Seiki.JSample1_1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch JSample2_1",
+      "request": "launch",
+      "mainClass": "Seiki.JSample2_1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch JSample3_1",
+      "request": "launch",
+      "mainClass": "Seiki.JSample3_1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch JSample4_1",
+      "request": "launch",
+      "mainClass": "Seiki.JSample4_1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch JSample6_1",
+      "request": "launch",
+      "mainClass": "Seiki.JSample6_1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main(3)",
+      "request": "launch",
+      "mainClass": "Story.Main",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest9",
+      "request": "launch",
+      "mainClass": "Tv.ctest9",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest1",
+      "request": "launch",
+      "mainClass": "Video.ctest1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch WriteFile",
+      "request": "launch",
+      "mainClass": "WriteFile",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch Times",
+      "request": "launch",
+      "mainClass": "YearDays.Times",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testCalendar1",
+      "request": "launch",
+      "mainClass": "YearDays.testCalendar1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testCalendar2",
+      "request": "launch",
+      "mainClass": "YearDays.testCalendar2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testCalendar3",
+      "request": "launch",
+      "mainClass": "YearDays.testCalendar3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testCalendar4",
+      "request": "launch",
+      "mainClass": "YearDays.testCalendar4",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testCalendar5",
+      "request": "launch",
+      "mainClass": "YearDays.testCalendar5",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testCalendarEx",
+      "request": "launch",
+      "mainClass": "YearDays.testCalendarEx",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest11",
+      "request": "launch",
+      "mainClass": "ctest11",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest13",
+      "request": "launch",
+      "mainClass": "ctest13",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest19",
+      "request": "launch",
+      "mainClass": "ctest19",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch ctest6",
+      "request": "launch",
+      "mainClass": "ctest6",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch dentaku1",
+      "request": "launch",
+      "mainClass": "dentaku1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch dentaku2",
+      "request": "launch",
+      "mainClass": "dentaku2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch dentaku3",
+      "request": "launch",
+      "mainClass": "dentaku3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch dentaku4",
+      "request": "launch",
+      "mainClass": "dentaku4",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch fileTest1",
+      "request": "launch",
+      "mainClass": "fileTest1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch readFile",
+      "request": "launch",
+      "mainClass": "readFile",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testIni1",
+      "request": "launch",
+      "mainClass": "testIni1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testIni2",
+      "request": "launch",
+      "mainClass": "testIni2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testMath1",
+      "request": "launch",
+      "mainClass": "testMath1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testMath2",
+      "request": "launch",
+      "mainClass": "testMath2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testMath3",
+      "request": "launch",
+      "mainClass": "testMath3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testMath4",
+      "request": "launch",
+      "mainClass": "testMath4",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testMath5",
+      "request": "launch",
+      "mainClass": "testMath5",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testMath6",
+      "request": "launch",
+      "mainClass": "testMath6",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testMath7",
+      "request": "launch",
+      "mainClass": "testMath7",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testScanner1",
+      "request": "launch",
+      "mainClass": "testScanner1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testScanner2",
+      "request": "launch",
+      "mainClass": "testScanner2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testScanner3",
+      "request": "launch",
+      "mainClass": "testScanner3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testScanner4",
+      "request": "launch",
+      "mainClass": "testScanner4",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testString1",
+      "request": "launch",
+      "mainClass": "testString1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testString2",
+      "request": "launch",
+      "mainClass": "testString2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testString3",
+      "request": "launch",
+      "mainClass": "testString3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testString4",
+      "request": "launch",
+      "mainClass": "testString4",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testString5",
+      "request": "launch",
+      "mainClass": "testString5",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testString6",
+      "request": "launch",
+      "mainClass": "testString6",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testString7",
+      "request": "launch",
+      "mainClass": "testString7",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testStringBuilder1",
+      "request": "launch",
+      "mainClass": "testStringBuilder1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch testStringBuilder2",
+      "request": "launch",
+      "mainClass": "testStringBuilder2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch streamTest1",
+      "request": "launch",
+      "mainClass": "ファイル読み書き.streamTest1",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch streamTest2",
+      "request": "launch",
+      "mainClass": "ファイル読み書き.streamTest2",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch streamTest3",
+      "request": "launch",
+      "mainClass": "ファイル読み書き.streamTest3",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch streamTest4",
+      "request": "launch",
+      "mainClass": "ファイル読み書き.streamTest4",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch streamTest5",
+      "request": "launch",
+      "mainClass": "ファイル読み書き.streamTest5",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch streamTest6",
+      "request": "launch",
+      "mainClass": "ファイル読み書き.streamTest6",
+      "projectName": "kensyuu_df21527b"
+    },
+    {
+      "type": "java",
+      "name": "Launch streamTest7",
+      "request": "launch",
+      "mainClass": "ファイル読み書き.streamTest7",
+      "projectName": "kensyuu_df21527b"
+    }
+  ]
+}

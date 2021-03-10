@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class daysApp {
-  public static void TimeFile(){
+  public static void timeFile(){
     //カレンダークラスにより現在日時を取得
     Calendar c = Calendar.getInstance();
     // 日時のフォーマットを設定 
@@ -30,8 +30,5 @@ public class daysApp {
           System.out.println(e);
           return;
       }
-  }
-  public void timeFile(){
-
   }
 }
